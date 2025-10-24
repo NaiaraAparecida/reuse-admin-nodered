@@ -1,9 +1,0 @@
-{
-    "name": "reuse-admin-nodered",
-    "description": "Painel administrativo e API Node-RED do projeto ReUse",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-        "node-red-dashboard": "^3.6.6"
-    }
-}

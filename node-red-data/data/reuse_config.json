@@ -1,9 +1,0 @@
-{
-  "enableTrades": true,
-  "enablePushNotifications": true,
-  "maintenanceMode": false,
-  "maxImagesPerItem": 5,
-  "bannerText": "Bem-vindo ao ReUse!",
-  "weeklyChallenges": [],
-  "monthlyChallenges": []
-}

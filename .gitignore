@@ -1,14 +1,22 @@
-# Node-RED
-node_modules/
-data/*.jsonl
-data/reuse_items.json
-data/reuse_audit*.jsonl
+# Runtime / dados locais do Node-RED
+node-red-data/
+data/
 *.cred.json
-*.config.json
 *.sessions.json
-*.flows_*
-node-red/.config.*
-node-red/.sessions.json
+*.config.json
+flows_*_cred.json
 
-# Local configs
+# Dependências e builds
+**/node_modules/
+**/dist/
+**/build/
+
+# Logs e temporários
+*.log
+npm-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Variáveis locais
 .env
