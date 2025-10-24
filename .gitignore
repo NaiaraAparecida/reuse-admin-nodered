@@ -1,0 +1,14 @@
+# Node-RED
+node_modules/
+data/*.jsonl
+data/reuse_items.json
+data/reuse_audit*.jsonl
+*.cred.json
+*.config.json
+*.sessions.json
+*.flows_*
+node-red/.config.*
+node-red/.sessions.json
+
+# Local configs
+.env

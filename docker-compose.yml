@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  reuse-admin-nodered:
+    build: .
+    container_name: reuse-admin-nodered
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=${TZ}
+      - REUSE_API_BASE_URL=${REUSE_API_BASE_URL}
+      - REUSE_ADMIN_TOKEN=${REUSE_ADMIN_TOKEN}
+    volumes:
+      - ./node-red-data:/data
+    restart: unless-stopped
+
