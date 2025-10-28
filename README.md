@@ -171,11 +171,30 @@ Todas as alterações de configuração são registradas em data/reuse_audit.jso
 O painel exibe as 5 últimas alterações (atualização automática a cada 30s).
 
 ---
+## 🤝 Contribuindo
 
-## 👩‍💻 Autoria
+Contribuições são bem-vindas!
+Abra uma issue ou envie um pull request com suas melhorias.
+
+---
+
+## 📬 Contato
+
+LinkedIn: www.linkedin.com/in/naiara-cruz
+
+Email: naiaraaparecida95@gmail.com
+
+Portfólio: https://portfolio-site-naiara.netlify.app/
+
+---
+
+## 🧠 Autoria
 
 Desenvolvido por:
+
 👩‍💻 Naiara Aparecida da Silva Cruz
-📍 Projeto acadêmico FIAP – Global Solution / Projeto ReUse
-🔗 github.com/NaiaraAparecida
+
+💼 Desenvolvedora Front-End & UX/UI Designer
+
+🏫 FIAP — Startup 2025
 
