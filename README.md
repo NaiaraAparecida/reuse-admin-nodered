@@ -4,173 +4,105 @@ Este repositório contém o **painel administrativo e backend** do projeto **ReU
 
 ---
 
-## 🧭 Visão geral
-
-O **ReUse Admin** é o núcleo de controle da plataforma:
-- Oferece **API REST** (`/api/config`, `/api/items`, `/api/trades`, etc.).
-- Disponibiliza um **painel visual** para administradores ajustarem parâmetros do sistema.
-- Gerencia **auditoria**, **feature flags**, **limites de imagens**, **banner dinâmico**, entre outros.
-- Emite atualizações em **tempo real via WebSocket** (`/ws/config`).
-- É executado em **Docker**, podendo ser integrado com os módulos *mobile* e *web*.
+## ☁️ Deploy
+- **Painel Node-RED:** http://localhost:1880 *(ou instância configurada)*
+- **Repositório Principal:** https://github.com/NaiaraAparecida/reuse
 
 ---
 
-## 🧩 Estrutura atual
+## ✨ Recursos
+- Painel visual em **Node-RED** para administração e monitoramento  
+- **Autenticação e controle de tokens** para APIs  
+- **Integração com backend e banco de dados** do ReUse  
+- Fluxos de **cadastro, aprovação e status de itens**  
+- **Monitoramento em tempo real** de atividades da plataforma  
+- Sistema **low-code**, simples de escalar e manter  
+
+---
+
+## 🛠 Tecnologias
+- **Node-RED**  
+- **JavaScript (flows)**  
+- **Docker Compose** *(opcional)*  
+- **JSON APIs**  
+- **Dashboard Node-RED UI**  
+
+---
+
+## 📂 Estrutura do Projeto
 
 reuse-admin-nodered/
-├─ data/
-│ ├─ reuse_config.json # Configuração ativa do sistema
-│ ├─ reuse_audit.jsonl # Log de auditoria
-│ └─ outros arquivos gerados em runtime
-│
-├─ reuse-admin-nodered-main/ # Projeto Node-RED com flows e dashboard
-│ ├─ flows.json # Flows principais (API + Backoffice)
-│ ├─ package.json # Dependências Node-RED
-│ ├─ settings.js # Configurações internas (opcional)
-│ ├─ Dockerfile # Imagem base Node-RED personalizada
-│ └─ docker-compose.yml # Subida local
-│
-├─ .env # Variáveis de ambiente (não subir)
-├─ .gitignore
-└─ README.md # Este arquivo
 
+├── flows.json # Fluxos principais do Node-RED
+
+├── docker-compose.yml # Configuração opcional de container
+
+├── .env # Variáveis de ambiente
+
+├── README.md
+
+└── package.json
 
 
 ---
 
-## 🚀 Funcionalidades principais
-
-### 🔧 API REST
-| Endpoint | Método | Descrição |
-|-----------|---------|------------|
-| `/api/config` | GET / PUT | Lê e salva as configurações do sistema |
-| `/api/items` | GET / POST | Gerencia os itens disponíveis para troca/doação |
-| `/api/trades` | GET / POST / PATCH | Controla as transações entre usuários |
-| `/api/admin/items/:id/archive` | POST | Arquiva item (admin) |
-
-### 🌐 WebSocket
-| Path | Evento | Descrição |
-|------|---------|------------|
-| `/ws/config` | `config-updated` | Notifica mobile/web quando o admin altera configurações |
-
-### 🧱 Painel Administrativo (Dashboard)
-- **Feature Flags** → Ativa/Desativa funcionalidades (Trocas, Push, Manutenção).  
-- **Parâmetros** → Define “Máx. imagens” e texto de Banner.  
-- **Ações** → Carregar / Salvar / Recarregar App.  
-- **Status** → Mostra última atualização e últimas 5 auditorias.  
-- **Tema ReUse** → Interface verde (#0BAF6A) com layout 2 colunas.
-
----
-
-## ⚙️ Variáveis de ambiente
-
-Crie um arquivo `.env` (baseado no `.env.example`):
-
-REUSE_API_BASE_URL=http://localhost:1880
-
-REUSE_ADMIN_TOKEN=changeme
-
-
-| Variável | Função |
-|-----------|--------|
-| `REUSE_API_BASE_URL` | URL base para acessar a API (ex: durante testes locais) |
-| `REUSE_ADMIN_TOKEN` | Token usado para autenticação admin nas rotas protegidas |
-
----
-
-## 🐳 Como executar localmente (Docker)
+## 🚀 Como Rodar Localmente
 
 ```bash
-docker compose up -d
+# Clone o repositório
+git clone https://github.com/NaiaraAparecida/reuse-admin-nodered.git
+
+# Acesse a pasta
+cd reuse-admin-nodered
+
+# Instale dependências (se necessário)
+npm install
+
+# Inicie o Node-RED
+npx node-red
 ```
-
-Depois, acesse:
-
-Painel: http://localhost:1880/ui
-
-API: http://localhost:1880/api/config
-
-Use o token configurado no .env para acessar endpoints protegidos (Authorization: Bearer ...).
+Acesse o painel no navegador:
+🔗 http://localhost:1880
 
 ---
 
-## 🧰 Como abrir o projeto no Node-RED
+## 🧩 Integração com o Ecossistema ReUse
 
-Inicie o container (docker compose up).
+| Projeto | Repositório | Descrição |
+|-----------|--------|--------|
+| ♻️ ReUse Mobile	 | [reuse](https://github.com/NaiaraAparecida/reuse) | Aplicativo principal (React Native + Expo) |
+| 🧭 ReUse Admin | [reuse-admin-nodered](https://github.com/NaiaraAparecida/reuse-admin-nodered)| Painel administrativo em Node-RED |
+	
+---
 
-Acesse http://localhost:1880
-.
+## 🧱 Roadmap
 
-Vá até a aba ReUse Backoffice v2 (UX) para editar o painel.
+ - [x] Estrutura inicial de fluxos e painéis
 
-Vá até ReUse API para ajustar endpoints REST.
+ - [x] Autenticação e variáveis de ambiente (.env)
 
-Qualquer ajuste → clique em Deploy no canto superior direito.
+ - [x] Integração com APIs ReUse
+
+ - [ ] Logs e dashboards analíticos
+
+ - [ ] Controle de permissões e usuários
+
+ - [ ] Deploy com Docker e monitoramento remoto
 
 ---
 
-## 🍃 Tema ReUse (Dashboard)
+## 🎨 Design e Filosofia
 
-| **Elemento** | **Cor** |
-|:--------------|:--------|
-| Primary | `#0BAF6A` |
-| Page background | `#f5f7f9` |
-| Group background | `#ffffff` |
-| Group text | `#0BAF6A` |
-| Widget background | branco *(default)* |
+- Interface visual e intuitiva via Node-RED Dashboard
 
----
+- Configuração sem código para fluxos complexos
 
-### 📐 Layout recomendado
+- Arquitetura modular e sustentável
 
-| **Grupo** | **Largura** |
-|:-----------|:------------:|
-| Feature Flags | 6 |
-| Parâmetros | 6 |
-| Ações | 12 |
-| Status | 12 |
----
-
-## 🧠 Boas práticas e versionamento
-## 📦 Git
-
-Mantenha node-red-data/, data/, e node_modules/ no .gitignore.
-
-Nunca comite .env ou *.cred.json.
-
-Sempre faça commit e push após alterações relevantes nos flows:
-
-```bash
-git add .
-git commit -m "feat: ajustes no painel e API"
-git push
-```
+- Foco em eficiência, clareza e escalabilidade
 
 ---
 
-## 🔄 Deploy
-
-Durante o desenvolvimento:
-
-O botão Deploy no Node-RED já aplica localmente.
-
-Para publicar em produção, basta:
-
-```bash
-docker compose down
-git pull origin main
-docker compose up -d --build
-```
-
----
-
-🧾 Auditoria
-
-Todas as alterações de configuração são registradas em data/reuse_audit.jsonl.
-
-O painel exibe as 5 últimas alterações (atualização automática a cada 30s).
-
----
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas!
@@ -197,4 +129,3 @@ Desenvolvido por:
 💼 Desenvolvedora Front-End & UX/UI Designer
 
 🏫 FIAP — Startup 2025
-
